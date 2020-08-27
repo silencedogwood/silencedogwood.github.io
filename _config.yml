@@ -1,0 +1,29 @@
+title: The Missives of Mrs. Silence Dogwood
+theme: minima 
+description: 
+markdown: Pandoc
+disable_disk_cache: true
+
+header_pages: 
+  - reading.md
+  - posts.md
+  - zettels.md
+
+pandoc: 
+    extensions: 
+        - mathjax
+        - from: markdown+fancy_lists+strikeout+tex_math_dollars+pipe_tables+raw_html+markdown_in_html_blocks+fenced_divs
+
+plugins: 
+  - jekyll-toc
+  - jekyll-last-modified-at
+  - jekyll-pandoc
+
+exclude:
+  - vendor
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE
+  - README.md
+  - Rakefile
+  - _includes/html_notes # This prevents Jekyll serve from refreshing indefinitely because everytime it refreshes it generates new files in html_notes

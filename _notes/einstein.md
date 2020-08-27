@@ -1,0 +1,1 @@
+"'When a person can take pleasure in marching in step to a piece of music it is enough to make me despise him. He has been given his big brain only by mistake.'" - p21

@@ -1,0 +1,5 @@
+.gitconfig
+.sass-cache 
+.jekyll-metadata 
+_site/
+.jekyll-cache/

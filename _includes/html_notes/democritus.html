@@ -1,0 +1,72 @@
+<p><strong>Notes: assume all are direct quotations</strong></p>
+<p><em>Preface</em></p>
+<p>Thesis: QM isn’t about matter, energy, waves, or particles. It’s about information and probabilities and observables, and how they relate to each other.</p>
+<p>QM might be counterintuitive, but we should ask: <em>where</em> did my intuition go wrong such that I wouldn’t be able to intuit or predict QM?</p>
+<p>It might be the case that QM is inherently ununderstandable. Aaronson says if that’s true, he <em>doesn’t care</em> about QM. He’ll go do something else. It’s like flunking him without telling him how to improve or even telling him that he can’t improve.</p>
+<p>Here’s the book’s perspective on this: QM is a generalization of the laws of probability that use the 2-norm instead of the 1-norm, and complex numbers. We can study it <em>completely independently</em> from its use in physics. Whiel QM was invented to explain physical phenomena, <em>now</em> we can explain it as part of the history of ideas in math, logic, computing, and philosophy about the limits of the knowable.</p>
+<p><em>Chapter 1: Atoms and the void</em></p>
+<p>Democritus writes a dialogue between Intellect and Senses:</p>
+<p>Intellect: &gt; By convention there is sweetness, by convention bitterness, by convention color, <em>in reality</em> only atoms and the void.</p>
+<p>Senses: &gt; Foolish Intellect! Do you seek to overthrow us, while it is from us that you take your evidence?</p>
+<p>I think I’m missing a few layers of detail but I think Aaronson is says this is a metaphor for QM because: QM says atoms and the void evolve unitarily but measuring collapses this. This measurement part is weird: what even counts as a measurement? Removing it would make things cleaner from a physics standpoint. But we have <em>data</em> so we know this isn’t true and that measurements exist ie Nature does unitary evolution until someone looks and then it does something else!</p>
+<p>We can classify interpretations of QM by what they say about the idea of “putting yourself in a coherent superposition.” Copenhagen sweeps this under the rug - there’s a line separating quantum systems and measurements. Many-world and Bohmian mechanics try to answer the question.</p>
+<p><em>Chapter 2: Sets</em></p>
+<p>Math is the foundation of thought, and set theory is the foundation of math.</p>
+<p>The language we’ll use to talk about sets is called first-order logic.</p>
+<p><strong>Rules of first-order logic</strong>: the rules all govern how to construct sentences that are <em>valid</em> ie tautologically true.</p>
+<ol type="1">
+<li>Propositional tautologies: <span class="math inline"><em>A</em> ∪ ¬<em>A</em></span> and also <span class="math inline">¬(<em>A</em> ∩ ¬<em>A</em>)</span></li>
+<li>Modus ponens: if <span class="math inline"><em>A</em></span> is valid and <span class="math inline"><em>A</em></span> implies <span class="math inline"><em>B</em></span> is valid, <span class="math inline"><em>B</em></span> is valid.</li>
+<li>Equality rules: <span class="math inline"><em>x</em> = <em>y</em>, <em>x</em> = <em>y</em></span> implies $y = x $</li>
+<li>Change of variables: swapping the variables doesn’t change anything</li>
+<li>Quantifier elimination: if <span class="math inline">∀<em>x</em>, <em>A</em>(<em>x</em>)</span> is valid, then <span class="math inline"><em>A</em>(<em>y</em>)</span> is valid for any <span class="math inline"><em>y</em></span></li>
+<li>Quantifier addition: if <span class="math inline"><em>A</em>(<em>y</em>)</span> is valid for any <span class="math inline"><em>y</em></span>, then <span class="math inline">∀<em>x</em>, <em>A</em>(<em>x</em>)</span> is valid</li>
+<li>Quantifier rules: if <span class="math inline">¬(∀<em>x</em>, <em>A</em>(<em>x</em>))</span> is valid, then there exists some <span class="math inline"><em>x</em></span> such that <span class="math inline">¬(<em>A</em>(<em>x</em>))</span> is valid.</li>
+</ol>
+<p><strong>Peano axioms for nonnegative integers in first-order logic</strong></p>
+<p>Let <span class="math inline"><em>S</em>(<em>x</em>) = <em>x</em> + 1</span>.</p>
+<ol type="1">
+<li>Zero exists: <span class="math inline">∃<em>z</em> : ∀<em>x</em>, <em>S</em>(<em>x</em>) ≠ <em>z</em></span></li>
+<li>Every integer has at most one predecessor: <span class="math inline">∀<em>x</em>, <em>y</em> : <em>S</em>(<em>x</em>) = <em>S</em>(<em>y</em>) ⇒ <em>x</em> = <em>y</em></span></li>
+</ol>
+<p>The nonnegative integers are a <em>model</em> for the Peano axioms, ie some set that satisfies the axioms.</p>
+<p>While all these axioms seem unnecessary, they’ll become our guide when we move past the integers.</p>
+<p><strong>Axioms of set theory: Zermelo-Fraenkel axioms</strong></p>
+<ol type="1">
+<li>Empty set: <span class="math inline">∃<em>x</em> : ∀<em>y</em><em>y</em> ∉ <em>x</em></span></li>
+<li>Extensionality: if 2 sets contain the same members, they’re equal</li>
+<li>Pairing: <span class="math inline">∀<em>x</em>, <em>y</em> : ∃<em>z</em> = {<em>x</em>, <em>y</em>}</span> such that <span class="math inline">∀<em>w</em> : <em>w</em> ∈ <em>z</em> ⇔ <em>w</em> = <em>x</em> ∪ <em>x</em> = <em>y</em></span></li>
+<li>Union: for all sets <span class="math inline"><em>x</em></span> there exists a set equal to the union of all sets in <span class="math inline"><em>x</em></span></li>
+<li>Existence of infinite sets: there exists a set <span class="math inline"><em>x</em></span> that contains the empty set and that contains <span class="math inline">{<em>y</em>}</span> for every <span class="math inline"><em>y</em> ∈ <em>x</em></span></li>
+<li>Power set: for all sets <span class="math inline"><em>x</em></span> there exists a set consisting of subsets of <span class="math inline"><em>x</em></span></li>
+<li>Replaement: For all sets <span class="math inline"><em>x</em></span>, there exists a set <span class="math inline"><em>z</em> = {<em>A</em>(<em>y</em>)|<em>y</em> ∈ <em>x</em>}</span></li>
+<li>Foundation: All nonempty sets <span class="math inline"><em>x</em></span> have a member <span class="math inline"><em>y</em></span> such that for all <span class="math inline"><em>z</em></span>, either <span class="math inline"><em>z</em> ∉ <em>x</em></span> or <span class="math inline"><em>z</em> ∉ <em>y</em></span> ie any set cannot exist in <em>both</em> <span class="math inline"><em>x</em></span> and <span class="math inline"><em>y</em></span>. This rules out infinite sets like <span class="math inline">{{{...∞...}}}</span>.</li>
+</ol>
+<p>Cardinalities: all the finite ones (natural numbers), then <span class="math inline">ℵ_0</span> (aleph zero).</p>
+<p>Natural numbers, integers, and rational numbers have cardinality <span class="math inline">ℵ_0</span>. (We say two sets have the same cardinality if there’s a one-to-one mapping.)</p>
+<p>There are infinitely many infinities. PROOF:</p>
+<p>Suppose we have an infinite set <span class="math inline"><em>A</em></span>. We’ll create set <span class="math inline"><em>B</em></span> such that <span class="math inline"><em>B</em></span> has more elements than <span class="math inline"><em>A</em></span>.</p>
+<p>Let <span class="math inline"><em>B</em></span> be the set of all subsets of <span class="math inline"><em>A</em></span>, guaranteed to exist by Power Set axiom. Suppose we can map each <span class="math inline"><em>a</em> ∈ <em>A</em></span> to an element <span class="math inline"><em>f</em>(<em>a</em>) ∈ <em>B</em></span>.</p>
+<p>Let <span class="math inline"><em>S</em> ⊆ <em>A</em></span> consist of <em>every</em> <span class="math inline"><em>a</em></span> not contained in <span class="math inline"><em>f</em>(<em>a</em>)</span>.</p>
+<p>Since <span class="math inline"><em>S</em></span> is a subset of <span class="math inline"><em>A</em></span>, <span class="math inline"><em>S</em> ⊆ <em>B</em></span>, which means that <span class="math inline"><em>f</em>(<em>a</em>) = <em>S</em></span> for some <span class="math inline"><em>a</em></span>.</p>
+<p><span class="math inline"><em>a</em> ∈ <em>S</em></span> can’t be true because <span class="math inline"><em>f</em>(<em>a</em>) = <em>S</em></span> and <span class="math inline"><em>a</em> ∈ <em>S</em></span>, but <span class="math inline"><em>S</em></span> contains only elements <span class="math inline"><em>a</em></span> such that <span class="math inline"><em>a</em> ∉ <em>f</em>(<em>a</em>)</span>.</p>
+<p><span class="math inline"><em>a</em> ∉ <em>S</em></span> can’t be true because then <span class="math inline"><em>a</em> ∉ <em>f</em>(<em>a</em>)</span> so it should be in <span class="math inline"><em>S</em></span>.</p>
+<p>Contradiction. So <span class="math inline"><em>B</em></span> must have larger cardinality than <span class="math inline"><em>A</em></span>.</p>
+<p>Define <span class="math inline"><em>ω</em></span> to be greater than all the natural numbers. What comes after <span class="math inline"><em>ω</em></span>? Well <span class="math inline"><em>ω</em> + 1</span>, <span class="math inline"><em>ω</em> + 2</span>, …, <span class="math inline">2<em>ω</em></span>, …, <span class="math inline">3<em>ω</em></span>, …, <span class="math inline"><em>ω</em><sup>2</sup></span>, …, <span class="math inline"><em>ω</em><sup>3</sup></span>, …, <span class="math inline"><em>ω</em><sup>2</sup></span>, …, <span class="math inline"><em>ω</em><sup>3</sup></span>, …, <span class="math inline"><em>ω</em><sup><em>ω</em></sup></span>, …, <span class="math inline"><em>ω</em><sup><em>ω</em><sup><em>ω</em></sup></sup></span>, …</p>
+<p>These are called the ordinal numbers. ANy set of ordinal numbers has a first ordinal number that comes after everything in the set.</p>
+<p>Similarly, the ordinal numbers are well-ordered, which means every subset of of a set of ordinal numbers has a minimum element.</p>
+<p>Consider the set of all ordinal numbers with countably many predecessors. The successor to this set must have a cardinality of predecessors that is uncountable, or it would have been in the set. Call this cardinality <span class="math inline">ℵ_1</span>.</p>
+<p>By this logic, the set of cardinalities is also well-ordered.</p>
+<p>Starting with <span class="math inline">ℵ_0</span>, what is the next cardinality? Well we know how to construct <span class="math inline">ℵ_1</span> from above.<br />
+What about cardinality of <em>sets</em> of all integers, <span class="math inline">2<sup>ℵ_0</sup></span>? This is the set of all real numbers.</p>
+<p>Are they equal? This was Hilbert’s first problem in 1900.</p>
+<p>Cantor believed there was no intermediate infinity. He conjectured the Continuum Hypothesis: there is no set <span class="math inline"><em>S</em></span> such that</p>
+<p><span class="math inline">ℵ_0 &lt; |<em>S</em>| &lt; 2<sup>ℵ_0</sup></span>.</p>
+<p>There’s another statement that hasn’t been proved from ZF axioms: the Axiom of Choice, which states if you have a (possibly infinite) set of sets, then it’s possible to form a new set choosing one item from each set. The Banach-Tarski paradox uses this axiom to prove it’s possible to cut a solid sphere into finite pieces and reconstruct them to create a solid sphere 1000 times bigger.</p>
+<p>The heart of why the Axiom of Choice has such huge consequences is that it asserts certain sets exist without providing a rule for constructing them.</p>
+<p>AC is equal the statement that every set can be well-ordered. Here’s why:</p>
+<p>Well-ordering -&gt; AC: we can well-order our set of sets then pick the item in each set with lowest ordinal.</p>
+<p>AC -&gt; well-ordering: for all proper subsets <span class="math inline"><em>B</em> ⊂ <em>A</em></span>, use AC to pick an element <span class="math inline"><em>f</em>(<em>B</em>) ∈ <em>A</em> − <em>B</em></span>. Then we can well-order by: - <span class="math inline"><em>s</em>_0 = <em>f</em>() ∈ <em>A</em></span> - <span class="math inline"><em>s</em>_1 = <em>f</em>(<em>s</em>_0) ∈ <em>A</em> − <em>s</em>_0</span> - <span class="math inline"><em>s</em>_2 = <em>f</em>(<em>s</em>_0, <em>s</em>_1) ∈ <em>A</em> − <em>s</em>_0 − <em>s</em>_1</span> - …</p>
+<p>Even if <span class="math inline"><em>A</em></span> is infinite, it must have some fixed infinite cardinality, so this ordering can’t go on forever. (Why not?)</p>
+<p>There are difficulties with CH.</p>
+<p>Suppose we want a union of open intervals that cover every rational point. Does the sum of lengths of intervals have to be infinite? No! The rational numbers are countable, so we can enumerate them and then surround them with interval <span class="math inline"><em>ϵ</em>/2<sup><em>i</em></sup></span> for the <span class="math inline"><em>i</em></span>th rational number. (How does this use CH?)</p>

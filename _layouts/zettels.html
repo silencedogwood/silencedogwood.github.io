@@ -1,0 +1,82 @@
+---
+layout: page
+---
+<!-- cal-heatmap for zettels -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/moment@2.18.1/min/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/cal-heatmap@3.3.10/cal-heatmap.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/cal-heatmap/3.3.10/cal-heatmap.css" />
+<style>
+  .graph-label {
+    font-size: 15px;
+  }
+  .graph-domain {
+    overflow: visible;
+    width: 200px;
+  }
+  #cal-heatmap {
+    display: flex;
+    justify-content: center;
+  }
+</style>
+<script type="text/javascript">
+  fetch("count.json").then((response) => {
+      return response.json()})
+    .then((data) => {
+      const cellSize = document.getElementById("cal-heatmap").offsetWidth/70
+      let currMonth = null
+      const cal = new CalHeatMap();
+      cal.init({
+          domain: "week",
+          subdomain: "day", 
+          range: 52,
+          cellSize,
+	  cellRadius: cellSize / 4,
+	  cellPadding: cellSize / 3,
+          domainGutter: 0,
+          tooltip: true,
+          domainLabelFormat: (date) => {
+            // Only display label if first few days of month
+            const md = moment(date) 
+            if (md.date() <= 7) {
+                return md.format("MMM")
+            }
+            return ""
+          }, 
+          label: {
+            width: 200,
+          }, 
+          start: (() => {
+            const date = new Date()
+            date.setFullYear(date.getFullYear() - 1)
+            date.setMonth(date.getMonth() + 1)
+            date.setDate(1)
+            return date
+          })(),
+          data: data,
+          afterLoadData: (data) => { 
+            delete data["total"]
+            return data
+          },
+          weekStartOnMonday: false,
+	  considerMissingDataAsZero: true,
+	  legend: [1, 3, 4, 5],
+	  legendColors: ["#efefef", "#006a4e"]
+        });
+      })
+</script>
+
+
+<!-- Literally just copied page.html except added class zettel-content-->
+<article class="post">
+
+  <!-- <header class="post-header">
+    <h1 class="post-title">{{ page.title | escape }}</h1>
+  </header> -->
+
+  <div class="zettel-content">
+    {{ content }}
+    {% heatmap %}
+    <div id="cal-heatmap"></div>
+  </div>
+</article>
