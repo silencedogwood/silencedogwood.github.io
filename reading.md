@@ -18,6 +18,7 @@ Favorites
 #. *Shoe Dog* by Phil Knight
 #. *The Way to Love* by Anthony De Mello {% notes way_to_love %}
 #. Scott Alexander's posts {% notes scott_alexander %}
+#. "Read This If You’re Worried That You’ll Never Find ‘The One’" by Heidi Priebe {% notes one %}
 #. "Humans are not automatically strategic" by Anna Salamon
 #. ["Ted Kennedy's Eulogy for Robert Kennedy"](https://www.youtube.com/watch?v=aV0MKikJraE)
 :::
@@ -28,14 +29,7 @@ Now Reading
 :::
 
 ::: reading-list 
-#. *The Courage to Be Disliked* by Ichiro Kishimi
-#. *Seeking Wisdom: From Darwin to Munger* by Peter Bevelin
-#. *The Precipice: Existential Risk and the Future of Humanity* by Toby Ord
 #. *The Fifteen Decisive Battles of the World* by Sir Edward Shepherd Creasy
-#. *War and Peace* by Leo Tolstoy
-#. *Gödel, Escher, Bach: An Eternal Golden Braid* by Douglas Hofstadter
-#. *The End of Time: The Next Revolution in Physics* by Julian Barbour
-#. *Only Words* by Catherine MacKinnon
 :::
 
 ::: {#finished} 
@@ -45,7 +39,6 @@ Finished
 ::: reading-list 
 #. "When We Build" by Wilson Miner 
 #. *The Lessons of History* by Will and Ariel Durant
-#. *Quantum Computing Since Democritus* by Scott Aaronson {% notes democritus %}
 #. *Hackers and Painters* by Paul Graham
 #. *The Innovators* by Walter Isaacson
 #. *Surely You're Joking Mr. Feynman* by Richard Feynman
@@ -65,14 +58,11 @@ Finished
 #. *The Rosie Effect* by Graeme Simsion
 #. "Principles of Effective Research" by Michael Nielsen
 #. *Inadequate Equilibria* by Eliezer Yudkowsky {% notes equilibria %}
-#. *Founders at Work* by Jessica Livingston 
-#. *The Ballad of Songbirds and Snakes* by Suzanne Collins
 #. *Conspiracy* by Ryan Holiday {% notes conspiracy %}
 #. *Early Retirement Extreme* by Jacob Lund Fisker
-#. *Six of Crows* by Leigh Bardugo
-#. *Crooked Kingdom* by Leigh Bardugo
-#. "Advice for ambitious teenagers" by Laura Deming
 #. "How to Understand Things" by Nabeel Qureshi
+#. *The Precipice: Existential Risk and the Future of Humanity* by Toby Ord
+#. *What Mad Pursuit* by Francis Crick {% notes crick %}
 :::
 
 ::: {#anti-library} 
@@ -80,7 +70,15 @@ Anti-Library [\[?\]](https://fs.blog/2013/06/the-antilibrary/)
 :::
 
 ::: reading-list 
-#. *What Mad Pursuit* by Francis Crick
+#. *Quantum Computing Since Democritus* by Scott Aaronson {% notes democritus %}
+#. *The Mind Illuminated* by Culadasa
+#. *The Courage to Be Disliked* by Ichiro Kishimi
+#. *Seeking Wisdom: From Darwin to Munger* by Peter Bevelin
+#. *War and Peace* by Leo Tolstoy
+#. *Gödel, Escher, Bach: An Eternal Golden Braid* by Douglas Hofstadter
+#. *The End of Time: The Next Revolution in Physics* by Julian Barbour
+#. *Only Words* by Catherine MacKinnon
+#. *Imperium: A Novel of Ancient Rome* by Robert Harris
 #. *Reasons and Persons* by Derek Parfit
 #. *On What Matters* by Derek Parfit
 #. *Give War and Peace a Chance* by Andrew Kaufman
@@ -94,7 +92,6 @@ Anti-Library [\[?\]](https://fs.blog/2013/06/the-antilibrary/)
 #. *Ideas and Opinions* by Albert Einstein 
 #. *Einstein: His Life and Universe* by Walter Isaacson {% notes einstein %}
 #. *Linear Operators for Quantum Mechanics* by Thomas Jordan
-#. *Algorithms* by Dasgupta, Papadimitriou, and Vazirani
 #. *On Writing* by Stephen King
 #. *Moonwalking with Einstein* by Joshua Foer
 #. *Story of Philosophy* by Will Durant
