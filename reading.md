@@ -20,7 +20,8 @@ Favorites
 #. Scott Alexander's posts {% notes scott_alexander %}
 #. "Read This If You’re Worried That You’ll Never Find ‘The One’" by Heidi Priebe {% notes one %}
 #. "Humans are not automatically strategic" by Anna Salamon
-#. ["Ted Kennedy's Eulogy for Robert Kennedy"](https://www.youtube.com/watch?v=aV0MKikJraE)
+#. ["Thoughts on Meaning and Writing"](https://dormin.org/2020/10/06/thoughts-on-meaning-and-writing/) by Dormin
+#. "If" by Rudyard Kipling {% notes if %}
 :::
 
 
@@ -30,6 +31,7 @@ Now Reading
 
 ::: reading-list 
 #. *The Fifteen Decisive Battles of the World* by Sir Edward Shepherd Creasy
+#. *Prisons We Choose to Live Inside* by Doris Lessing
 :::
 
 ::: {#finished} 
@@ -62,23 +64,38 @@ Finished
 #. *Early Retirement Extreme* by Jacob Lund Fisker
 #. "How to Understand Things" by Nabeel Qureshi
 #. *The Precipice: Existential Risk and the Future of Humanity* by Toby Ord
+#. ["Ted Kennedy's Eulogy for Robert Kennedy"](https://www.youtube.com/watch?v=aV0MKikJraE)
 #. *What Mad Pursuit* by Francis Crick {% notes crick %}
+#. *Imperium: A Novel of Ancient Rome* by Robert Harris
 :::
 
 ::: {#anti-library} 
-Anti-Library [\[?\]](https://fs.blog/2013/06/the-antilibrary/)
+Anti-Library
 :::
 
 ::: reading-list 
+#. *Rationality: From AI to Zombies* by Eliezer Yudkowsky 
+#. *Focusing* by Eugene Gendlin 
+#. *The Inner Game of Tennis* by Timothy Gallwey 
+#. *Nonviolent Communication* by Marshall Rosenberg 
+#. *Influence* by Robert Cialdini
+#. *Commentariolum Petitionis* by Quintus Cicero
+#. *Understanding Power* by Noam Chomsky 
 #. *Quantum Computing Since Democritus* by Scott Aaronson {% notes democritus %}
 #. *The Mind Illuminated* by Culadasa
 #. *The Courage to Be Disliked* by Ichiro Kishimi
+#. *The Red Queen* by Matt Ridley
+#. *Sapiens* by Yuval Noah Harari
+#. *Skin in the Game* by Nassim Taleb
+#. *The Bed of Procrustes* by Nassim Taleb 
+#. *How to Change Your Mind* by Michael Pollan
+#. *Striking Thoughts* by Bruce Lee
+#. *Ficciones* by Jorge Luis Borges
 #. *Seeking Wisdom: From Darwin to Munger* by Peter Bevelin
 #. *War and Peace* by Leo Tolstoy
 #. *Gödel, Escher, Bach: An Eternal Golden Braid* by Douglas Hofstadter
 #. *The End of Time: The Next Revolution in Physics* by Julian Barbour
 #. *Only Words* by Catherine MacKinnon
-#. *Imperium: A Novel of Ancient Rome* by Robert Harris
 #. *Reasons and Persons* by Derek Parfit
 #. *On What Matters* by Derek Parfit
 #. *Give War and Peace a Chance* by Andrew Kaufman
@@ -99,6 +116,7 @@ Anti-Library [\[?\]](https://fs.blog/2013/06/the-antilibrary/)
 #. *E-Myth Revisited* by Michael Gerber (1!)
 #. *The Ultimate Sales Machine* by Chet Holmes (2!)
 #. *On Writing Well* by William Zinsser
+#. *Thinking Physics* by Lewis Carroll Epstein
 #. *Benjamin Franklin: An American Life* by Walter Isaacson
 #. *Meditations* by Marcus Aurelius
 #. *The Man Who Loved Only Numbers* by Paul Hoffman

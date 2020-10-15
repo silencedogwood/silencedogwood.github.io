@@ -6,6 +6,17 @@ publish: true
 
 # Zettels Master List
 
+***I've pretty much abandoned this. Reasons why I stopped: ***
+
+- I wasn't remembering as much as I thought I would. I expected to have a decent 
+knowledge about the cards I've written over time but it seemed like I'd only 
+remember the most recent ones. Even when repeatedly using a card or linking to 
+it or thinking about it, I'd lose it after I learned a few more cards.
+- This is unwieldy. So many index cards aren't fun to flip through and 
+frustrating to handle. 
+- Roam is way better. Anki is awesome and I feel like there's a lot of ways to 
+improve my Anki usage.
+
 IDs follow a 53-alphabet numbering system: 
 $\emptyset$ < A < ... < Z < a < ... < z < AA < ... AZ < Aa < ... < Az < BA < ...
 
