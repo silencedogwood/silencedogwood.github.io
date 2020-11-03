@@ -34,6 +34,11 @@
 
 "For although you are ambitious, you have no ambition... I expect you will grasp at any opportunity for advancement which falls into your hands. But there is no great ambition that you are driven to accomplish, and you will not *make* your opportunities. At best, you will grasp your way upward into Minister of Magic, or some other high-position of unimportance, never breaking the bounds of your existence." - 1073
 
+"Harry had read once, somewhere, that the opposite of happiness wasn't sadness, 
+but boredom; and the author had gone on to say that to find happiness in life 
+you asked yourself not what would make you happy, but what would excite 
+you." - p 1653
+
 **Nihil supernum.**
 
 In Chapter 8, Harry predicts he'll have to convince Hermione he's smart so he gives her the drink that makes you spit it out before she asks him to prove he's smart and then claims to clean the mess by snapping his fingers. 
@@ -82,6 +87,26 @@ Harry plays a game where he creates a rule and Hermione asks him if any triplet 
 
 "The point of a subjective Bayesian calculation wasn't that, after you made up a bunch of numbers, multiplying them out would give you an exactly right answer. The real point was that the process of making up numbers would force you to tally all the relevant facts and weigh all the relative probabilities... One version of the process was to tally hypotheses and list out evidence, make up all the numbers, do the calculation, and then throw out the final answer and go with your brain's gut feeling *after* you'd forced it to really *weigh* everything." - p1441
 
+"'Why does any kind of cynicism appeal to people? Because it seems like a mark 
+of maturity, of sophistication, like you've seen everything and you know 
+better. Or because putting something down feels like pushing yourself up. Or 
+they don't have a phoenix themselves, so their political instinct tells them 
+there's no advantage to be gained from saying nice things about phoenixes. 
+Or because being cynical feels like knowing a secret truth that common people 
+don't know... I think maybe that's what *he's* getting wrong -- that he's 
+cynical about everything else, but not about cynicism itself.'" - Ch 65
+
+This reminded me of PG's [Early Work](http://paulgraham.com/early.html): 
+
+> ...inexperience is not the only reason people are too harsh on early versions 
+> of ambitious projects. They also do it to seem clever. And in a field where
+> the new ideas are risky, like startups, those who dismiss them are in fact 
+> more likely to be right. Just not when their predictions are weighted by 
+> outcome. 
+
+This idea of being cynical to signal maturity or intellect is something I 
+catch myself doing often...
+
 **Modelling yourself.**
 
 "I'm voting that this is a performance, said Inner Critic. She wouldn't just blurt all that out in response to one question unless she was looking for an opportunity. / Noted but I'm putting a low weight of confidence on that, said Ravenclaw. It's very hard not to let your suspicions control your perceptions when you're trying to weigh evidence that subtle." - p916 
@@ -91,6 +116,8 @@ Harry plays a game where he creates a rule and Hermione asks him if any triplet 
 "If you didn't *predict* that something would happen, if it took you completely by surprise, then what you believed about the world when you *didn't* see it coming, isn't enough to explain." - p1413
 
 " 'Is there some amazing rational thing you do when your mind's running in all different directions?' she managed. 'My own approach is usually to identify the different desires, give them names, conceive of them as separate individuals, and let them argue it out inside my head. So far the main persistent ones are my Hufflepuff, Ravenclaw, Gryffindor, and Slytherin sides, my Inner Critic, and my simulated copies of you, Neville, Draco, Professor McGonagall, Professor Flitwick, Professor Quirrell, Dad, Mum, Richard Feynman, and Douglas Hofstadter.' " - p1491. 
+
+"But there is another possible explanation, Mr. Potter. It is that people play the role of friendship. They do just as much as that role requires of them, and no more. The thought occurs to me that perhaps the difference between you and them is not that you care more than they do. Why would you have been born with such unusually strong emotions of friendship, that you alone among wizardkind are driven to resurrect Hermione Granger after her death? No, the most likely difference is not that you care more. It is that, being a more logical creature than they, you alone have thought that playing the role of Friend would require this of you." - Ch 95
 
 "Ruminating about the past can contribute to depression. You have *my* blanket permission to just never think about your past, ever." Similar to putanumonit's post on COVID. - 1892
 

@@ -6,7 +6,7 @@ publish: true
 
 # Reading
 
-Right now, mostly thinking about financial independence and freedom. 
+Right now, mostly thinking about financial independence and biases.
 
 ::: {#favorites} 
 Favorites
@@ -32,6 +32,10 @@ Now Reading
 ::: reading-list 
 #. *The Fifteen Decisive Battles of the World* by Sir Edward Shepherd Creasy
 #. *Prisons We Choose to Live Inside* by Doris Lessing
+#. *Rationality: From AI to Zombies* by Eliezer Yudkowsky 
+#. "[Principled Decision Making](https://stopa.io/post/217)" by Stepan Parunashvili
+#. *The Red Queen* by Matt Ridley {% notes red_queen %}
+#. *How to Change Your Mind* by Michael Pollan
 :::
 
 ::: {#finished} 
@@ -67,6 +71,7 @@ Finished
 #. ["Ted Kennedy's Eulogy for Robert Kennedy"](https://www.youtube.com/watch?v=aV0MKikJraE)
 #. *What Mad Pursuit* by Francis Crick {% notes crick %}
 #. *Imperium: A Novel of Ancient Rome* by Robert Harris
+#. *A Woman in Berlin* by Anonymous
 :::
 
 ::: {#anti-library} 
@@ -74,7 +79,15 @@ Anti-Library
 :::
 
 ::: reading-list 
-#. *Rationality: From AI to Zombies* by Eliezer Yudkowsky 
+#. *The Evolving Self: Problem and Process in Human Development* by Robert Kegan
+#. *In Over Our Heads: The Mental Demands of Modern Life* by Robert Kegan
+#. *Zen and the Art of Motorcycle Maintenance* by Robert Pirsig
+#. *Antifragile* by Nassim Taleb
+#. *Principles* by Ray Dalio
+#. *Models* by Mark Manson
+#. *Getting Things Done* by David Allen
+#. *Feeling Good* by David Burns
+#. *The Righteous Mind* by Jonathan Haidt
 #. *Focusing* by Eugene Gendlin 
 #. *The Inner Game of Tennis* by Timothy Gallwey 
 #. *Nonviolent Communication* by Marshall Rosenberg 
@@ -84,7 +97,6 @@ Anti-Library
 #. *Quantum Computing Since Democritus* by Scott Aaronson {% notes democritus %}
 #. *The Mind Illuminated* by Culadasa
 #. *The Courage to Be Disliked* by Ichiro Kishimi
-#. *The Red Queen* by Matt Ridley
 #. *Sapiens* by Yuval Noah Harari
 #. *Skin in the Game* by Nassim Taleb
 #. *The Bed of Procrustes* by Nassim Taleb 

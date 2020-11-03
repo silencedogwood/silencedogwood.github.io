@@ -158,3 +158,27 @@ requires a *sequence* of logical steps. If one of these is a mistake, the
 answer is often hidden, since the error usually puts one on completely the 
 wrong track. It is therefore extremely important not to be trapped by one's 
 mistaken ideas." - p 94
+
+"With the double helix clearly in view, the next problem was, what did it do - 
+how did it influence the rest of the cell? We already knew the answer in 
+outline. Genes determined the amino acid sequence of proteins. Because the 
+backbone of the nucleic acid structure appeared so regular we assumed, 
+correctly, that it was the base sequence that carried this information. Since 
+the DNA was in the nucleus of the cell and since protein synthesis seemed to 
+take place outside the nucleus, in the cytoplasm, we imagined that a copy of 
+each active gene had to be sent to the cytoplasm. As there was plenty of RNA 
+there, and no apparent trace of DNA, we assumed that this messenger was RNA. It 
+was easy enough to see how a stretch o DNA would make an RNA copy - a simple 
+base-pairing mechanism could do the trick - but it was less easy to see how the 
+resulting messenger RNA could direct protein synthesis, especially as very 
+little was then known about this latter process." - p 117 
+
+"We knew there were about a couple dozen different kinds of amino acids - the 
+little units from which protein chains were made - yet there were only *four* 
+different kinds of bases in DNA and RNA. One solution would be to read the 
+nucleic acid sequence two bases at a time. This would yield only sixteen 
+(4 x 4) possibilities, which seemed too few. Another alternative was to read 
+them *three* at a time. This would give sixty-four (4 x 4 x 4) possible 
+combinations of the four bases A, T, G, and C. This seemed too many." - p 117 
+
+
