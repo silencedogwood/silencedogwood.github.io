@@ -181,6 +181,10 @@ blithely among ourselves about evolution being a question of the 'survival of
 the species.' We imply that species compete with each other, that Darwin's 
 'struggle for existence' is between dinosaurs and mammals, or between rabbits 
 and foxes, or between men and neanderthals." - p 31
+- Well, hold on. Isn't the reason that evolution focuses on the species that 
+any creature that *didn't* evolve to focus on its species wouldn't result in a 
+long-lasting species? Doesn't evolution select for species that preserve and
+strengthen itself?
 
 "Suppose the individual is a tigress whose territory has recently been invaded 
 by another tigress. Does she welcome the intruder and discuss how best they 
@@ -277,5 +281,96 @@ require *thousands* of generations to do their work. Kondrashov's is certainly
 the fastest theory, but it is probably not fast enough." - p 45 
 
 #### Chapter 3: The Power of Parasites 
+
+"[Bdelloid rotifers] live in any kind of fresh water, from puddles in your 
+gutter to hot springs by the Dead Sea and ephemeral ponds on the Antarctic 
+continent... You can boil it for an hour or freeze it to within 1 degree of 
+*absolute zero* for a whole hour. Not only does it fail to disintegrate, it 
+does not even die. Tuns blow about the globe as dust so easily that rotifers 
+are thought to travel regularly between Africa and America... No male bdelloid 
+rotifer has ever been seen... Recent research by Meselson and Welch suggests 
+that they just never do have sex. They have found that the same gene in two 
+different individuals can be up to 30 percent different at points that do not 
+affect its function - a level of difference that implies bdelloids gave up sex 
+between 40 million and 80 million years ago... Nonetheless, the bdelloids are 
+a living rebuke to the conventional wisdom that without sex, evolution can 
+barely happen and species cannot adapt to change." - p 48 
+
+**The Art of Being Slightly Different**
+
+"[George Williams] noticed that sex and *dispersal* often seem to be linked. 
+Thus, grass grows asexual runners to propogate locally but commits its sexually 
+produced seeds to the wind to travel further. Sexual aphids grow wings; asexual 
+ones do not. The suggestion that immediately follows is that if your young are 
+going to have to travel abroad, then it is better that they vary *because 
+abroad may not be like home*." - p 48
+
+The following mentions *monogonont rotifers*, cousins of bdelloid rotifers, 
+mentioned above. 
+
+"Williams was especially intrigued by creatures such as aphids and monogonont 
+rotifers, which have sex only once every few generations. Aphids multiply 
+during the summer on a rosebush, and monogonont rotifers multiply in a street 
+puddle. But when the summer comes to an end, the last generation of aphids or 
+of monogonont rotifers is entirely sexual: it produces males and females that 
+seek each other out, mate, and produce tough little young that spend the 
+winter or the drought as hardened cysts awaiting the return of better 
+conditions. To Williams this looked like the operation of his lottery. While 
+conditions were favorable and predictable, it paid to reproduce as fast as 
+possible - asexually. When the little world came to an end and the next 
+generation of aphid or rotifer faced the uncertainty of finding a new home or 
+waited for the old one to reappear, then it paid to produce a variety of 
+different young in the hope that one would prove idea." - p 49 
+
+Hold on, why produce 2 genders by the way? This comes up in the next chapter!
+
+**The Tangled Bank**
+
+Check out Graham Bell's book *The Masterpiece of Nature*. 
+
+"Bell set out to catalog species according to their ecology and their 
+sexuality... He expected to find that animals and plants were more likely to 
+be sexual at higher latitudes and altitudes (where conditions are harsher); 
+in fresh water rather than the sea (because fresh water varies all the time, 
+flooding, drying, heating up in summer, freezing in winter, and so on, whereas 
+the sea is predictable); among weeds that live in disturbed habitats; and in 
+small creatures rather than large ones. *He found exactly the opposite*... 
+Indeed, even the association between sex and hard times in aphids and rotifers 
+turns out to be a myth. Aphids and monogonont rotifers both turn sexual not 
+when winter or drought threaten but when overcrowding affects the food supply.
+You can make them turn sexual in the laboratory just by letting them get too 
+crowded." - p 50 
+
+The "tangled bank" theory is that if your parents thrived doing one thing, it 
+probably pays for you to do something different because that niche might already 
+be saturated. Bell thought this was the most likely reason for sex. 
+
+But there aren't many ardent supporters of the tangled bank theory: 
+
+"An oyster that has grown large enough to breed is a great success, in oyster 
+terms. Most of its siblings are dead. If, as tangled bankers assume, the genes 
+had something to do with that, then why must we automatically assume that the 
+combination of genes that won in this generation will be a flop in the next? 
+There are ways around this difficulty for tangled bankers, but they sound a bit 
+like special pleading." - p 52 
+
+"Tangled banks predict a greater interest in sex in those animals and plants 
+that have many small offspring that then compete with one another than among 
+the plants and animals that have a few large young." - p 52 
+
+"[Austin Burt] looked not at whether mammals have sex but at how much 
+recombination goes on among their genes. He measured this quite easily by 
+counting the number of 'crossovers' on a chromosome. These are spots where, 
+quite literally, one chromosome swaps genes with another. What Burt found was 
+that among mammals the amount of recombination bears no relation to the number 
+of young, little relation to body size, and *close relation* to age at 
+maturity... Man has thirty crossovers, rabbits ten, and mice three. Tangled 
+gank theories would predict the opposte." - p 52 
+
+"The tangled bank theory also conflicted with evidence from fossils... [Species] 
+stay exactly the same for thousands of generations, to be *suddenly replaced* 
+by other forms of life. The tangled bank is a gradualist idea." - p 52 
+
+**The Red Queen**
 
 

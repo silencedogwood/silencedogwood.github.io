@@ -8,6 +8,9 @@ publish: true
 
 Right now, mostly thinking about financial independence and biases.
 
+::: {#expandCollapseAll}
+:::
+
 ::: {#favorites} 
 Favorites
 ::: 
@@ -72,6 +75,7 @@ Finished
 #. *What Mad Pursuit* by Francis Crick {% notes crick %}
 #. *Imperium: A Novel of Ancient Rome* by Robert Harris
 #. *A Woman in Berlin* by Anonymous
+#. ["The Craft of Writing Well"](https://youtu.be/vtIzMaLkCaM) by Larry McEnerney {% notes craft %}
 :::
 
 ::: {#anti-library} 
@@ -82,6 +86,7 @@ Anti-Library
 #. *The Evolving Self: Problem and Process in Human Development* by Robert Kegan
 #. *In Over Our Heads: The Mental Demands of Modern Life* by Robert Kegan
 #. *Zen and the Art of Motorcycle Maintenance* by Robert Pirsig
+#. *The Masterpiece of Nature* by Graham Bell
 #. *Antifragile* by Nassim Taleb
 #. *Principles* by Ray Dalio
 #. *Models* by Mark Manson
@@ -145,23 +150,57 @@ Anti-Library
 #. *Handbook of the Biology of Aging, Eighth Edition* by Matt Kaeberlein and George Martin
 :::
 
-<!-- This script is for notes expand/collapse functionality -->
 <script>
-    var coll = document.getElementsByClassName("collapsible");
-    var i;
+    const coll = document.getElementsByClassName("collapsible")
+    let allExpanded = false
 
-    for (i = 0; i < coll.length; i++) {
-      coll[i].innerHTML = "[+]";
-      coll[i].addEventListener("click", function() {
-        this.classList.toggle("active");
-        var content = this.nextElementSibling;
-        if (content.style.maxHeight){
-          content.style.maxHeight = null;
-          this.innerHTML = "[+]";
-        } else {
-          content.style.maxHeight = content.scrollHeight + "px";
-          this.innerHTML = "[–]";
-        }
-      });
+    // Notes expand/collapse functionality
+    for (let i = 0; i < coll.length; i++) {
+	coll[i].innerHTML = "[+]"
+	coll[i].addEventListener("click", () => {
+	    coll[i].classList.toggle("active")
+	    const content = coll[i].nextElementSibling
+	    if (content.style.maxHeight){
+		coll[i].innerHTML = "[+]"
+		content.style.maxHeight = null
+	    } else {
+		coll[i].innerHTML = "[–]"
+		content.style.maxHeight = content.scrollHeight + "px"
+	    }
+	})
     }
+
+    // Expand all 
+    const expandAll = () => {
+	for (let i = 0; i < coll.length; i++) {
+	    coll[i].innerHTML = "[-]"
+	    const content = coll[i].nextElementSibling 
+	    content.style.maxHeight = content.scrollHeight + "px"
+	}
+	expandedAll = true
+    }
+
+    // Collapse all 
+    const collapseAll = () => {
+	for (let i = 0; i < coll.length; i++) {
+	    coll[i].innerHTML = "[+]"
+	    const content = coll[i].nextElementSibling 
+	    content.style.maxHeight = null
+	}
+	expandedAll = false
+    }
+
+    const expandCollapseAll = document.getElementById("expandCollapseAll")
+    expandCollapseAll.innerHTML = "<a style='cursor: pointer;'><i>Expand all</i></a>"
+    expandCollapseAll.addEventListener("click", () => {
+	if (allExpanded) {
+	    collapseAll() 
+	    expandCollapseAll.innerHTML = "<a style='cursor: pointer;'><i>Expand all</i></a>"
+	    allExpanded = false
+	} else {	
+	    expandAll()
+	    expandCollapseAll.innerHTML = "<a style='cursor: pointer;'><i>Collapse all</i></a>"
+	    allExpanded = true
+	}
+    })
 </script>
