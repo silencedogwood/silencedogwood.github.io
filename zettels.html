@@ -1,0 +1,1258 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Removed favicon
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+  <link rel="manifest" href="/favicon/site.webmanifest">
+  <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff"> --><!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Zettels | The Missives of Mrs. Silence Dogwood</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Zettels" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:site_name" content="The Missives of Mrs. Silence Dogwood" />
+<script type="application/ld+json">
+{"@type":"WebPage","url":"/zettels.html","headline":"Zettels","dateModified":"2020-10-15T17:12:22+00:00","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="/feed.xml" title="The Missives of Mrs. Silence Dogwood" /><!-- MathJax. We use `defer` to make sure everything loads before running MathJax config. -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+
+  <script src="/mathjax-config.js" defer></script>
+  <script type="text/javascript" id="MathJax-script" defer
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+  </script>
+</head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><!-- Displays site.title on header -->
+    <a class="site-title" rel="author" href="/">The Missives of Mrs. Silence Dogwood</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+	  <!-- Three horizontal bars if screen is too small to display pages -->
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+                <a class="page-link" href="/reading.html">Reading</a>
+              
+                <a class="page-link" href="/zettels.html">Zettels</a>
+              </div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post">
+
+  <!-- <header class="post-header">
+    <h1 class="post-title">Zettels</h1>
+  </header> -->
+
+  <div class="post-content">
+    <!-- cal-heatmap for zettels -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/moment@2.18.1/min/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/cal-heatmap@3.3.10/cal-heatmap.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/cal-heatmap/3.3.10/cal-heatmap.css" />
+<style>
+  .graph-label {
+    font-size: 15px;
+  }
+  .graph-domain {
+    overflow: visible;
+    width: 200px;
+  }
+  #cal-heatmap {
+    display: flex;
+    justify-content: center;
+  }
+</style>
+<script type="text/javascript">
+  fetch("count.json").then((response) => {
+      return response.json()})
+    .then((data) => {
+      const cellSize = document.getElementById("cal-heatmap").offsetWidth/70
+      let currMonth = null
+      const cal = new CalHeatMap();
+      cal.init({
+          domain: "week",
+          subdomain: "day", 
+          range: 52,
+          cellSize,
+	  cellRadius: cellSize / 4,
+	  cellPadding: cellSize / 3,
+          domainGutter: 0,
+          tooltip: true,
+          domainLabelFormat: (date) => {
+            // Only display label if first few days of month
+            const md = moment(date) 
+            if (md.date() <= 7) {
+                return md.format("MMM")
+            }
+            return ""
+          }, 
+          label: {
+            width: 200,
+          }, 
+          start: (() => {
+            const date = new Date()
+            date.setFullYear(date.getFullYear() - 1)
+            date.setMonth(date.getMonth() + 1)
+            date.setDate(1)
+            return date
+          })(),
+          data: data,
+          afterLoadData: (data) => { 
+            delete data["total"]
+            return data
+          },
+          weekStartOnMonday: false,
+	  considerMissingDataAsZero: true,
+	  legend: [1, 3, 4, 5],
+	  legendColors: ["#efefef", "#006a4e"]
+        });
+      })
+</script>
+
+
+<!-- Literally just copied page.html except added class zettel-content-->
+<article class="post">
+
+  <!-- <header class="post-header">
+    <h1 class="post-title">Zettels</h1>
+  </header> -->
+
+  <div class="zettel-content">
+    <h1 id="zettels-master-list">Zettels Master List</h1>
+<p><strong><em>I’ve pretty much abandoned this. Reasons why I stopped: </em></strong></p>
+<ul>
+<li>I wasn’t remembering as much as I thought I would. I expected to have a decent knowledge about the cards I’ve written over time but it seemed like I’d only remember the most recent ones. Even when repeatedly using a card or linking to it or thinking about it, I’d lose it after I learned a few more cards.</li>
+<li>This is unwieldy. So many index cards aren’t fun to flip through and frustrating to handle.</li>
+<li>Roam is way better. Anki is awesome and I feel like there’s a lot of ways to improve my Anki usage.</li>
+</ul>
+<p>IDs follow a 53-alphabet numbering system: <span class="math inline">\(\emptyset\)</span> &lt; A &lt; … &lt; Z &lt; a &lt; … &lt; z &lt; AA &lt; … AZ &lt; Aa &lt; … &lt; Az &lt; BA &lt; …</p>
+<p>We can also add decimals in between “whole numbers.”</p>
+<p>There’s a Github-style heatmap at the bottom tracking my daily zettel creation.</p>
+<table>
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 84%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">ID</th>
+<th style="text-align: left;">Title</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">A</td>
+<td style="text-align: left;">Broad table of contents</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">B</td>
+<td style="text-align: left;">Inner product definition</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">B.E</td>
+<td style="text-align: left;">Deriving anti-linearity of inner product</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">C</td>
+<td style="text-align: left;">16B reasoning for complex inner product</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">D</td>
+<td style="text-align: left;">Hilbert-Schmidt inner product</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">E</td>
+<td style="text-align: left;">Gram-Schmidt</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">F</td>
+<td style="text-align: left;">Completeness relation</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">G</td>
+<td style="text-align: left;">Cauchy-Schwarz inequality</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">H</td>
+<td style="text-align: left;">Expressing linear operators in outer product notation</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">I</td>
+<td style="text-align: left;">Normal matrix</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">J</td>
+<td style="text-align: left;">Spectral theorem</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">K</td>
+<td style="text-align: left;">Orthonormal decomposition / diagonalization</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">L</td>
+<td style="text-align: left;">QR decomposition</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">M</td>
+<td style="text-align: left;">Normal matrix is Hermitian iff real eigenvalues</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">N</td>
+<td style="text-align: left;">Unitary matrix</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">O</td>
+<td style="text-align: left;">Eigenvalues of unitary matrix have modulus 1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">P</td>
+<td style="text-align: left;">Extending a unitary on a subspace to the whole space</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Q</td>
+<td style="text-align: left;">Integrating over the unitary group</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">R</td>
+<td style="text-align: left;">Integration using only Haar invariance</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">S</td>
+<td style="text-align: left;">Monte-Carlo Numerical Integration for unitaries</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">T</td>
+<td style="text-align: left;">Uniformly random unitary</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">U</td>
+<td style="text-align: left;">McClean’s algorithm for generating a uniformly random unitary</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">V</td>
+<td style="text-align: left;">Hermitian matrix</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">V.M</td>
+<td style="text-align: left;">Four Pauli operators form a basis for 2 x 2 Hermitians</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">W</td>
+<td style="text-align: left;">Hermitian eigenvectors are orthogonal if eigenvalues are different</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">X</td>
+<td style="text-align: left;">Projectors</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Y</td>
+<td style="text-align: left;">Commutator and anti-commutator</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Y.E</td>
+<td style="text-align: left;">Recursive formula for <span class="math inline">\([ A^n, B ]\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Z</td>
+<td style="text-align: left;">Simultaneous diagonalization theorem</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">a</td>
+<td style="text-align: left;">Positive operator</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">b</td>
+<td style="text-align: left;">Positive operators are Hermitian</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">c</td>
+<td style="text-align: left;">Positive operators have non-negative eigenvalues</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">d</td>
+<td style="text-align: left;"><span class="math inline">\(A^\dagger A\)</span> is positive for any <span class="math inline">\(A\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">e</td>
+<td style="text-align: left;">Matrix functions</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">f</td>
+<td style="text-align: left;">Trace</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">g</td>
+<td style="text-align: left;">Trace similarity invariance</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">h</td>
+<td style="text-align: left;">Trace of outer product</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">i</td>
+<td style="text-align: left;">Partial trace</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">j</td>
+<td style="text-align: left;">Exponential of a Hermitian is unitary</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">k</td>
+<td style="text-align: left;"><span class="math inline">\(\exp(A) \exp(B) = \exp(A+B)\)</span> if <span class="math inline">\([A,B] = 0\)</span> &amp; <span class="math inline">\(A,B\)</span> are Hermitian</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">l</td>
+<td style="text-align: left;">Unitary <span class="math inline">\(U = \exp(iK)\)</span> for some Hermitian <span class="math inline">\(K\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">m</td>
+<td style="text-align: left;">Tensor product</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">n</td>
+<td style="text-align: left;"><span class="math inline">\(e\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">o</td>
+<td style="text-align: left;">Binomial theorem</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">p</td>
+<td style="text-align: left;">Taylor series</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">p.M</td>
+<td style="text-align: left;">Frobenius method for solving differential equations</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">q</td>
+<td style="text-align: left;">Useful trig identities</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">r</td>
+<td style="text-align: left;">Euler’s identity</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">s</td>
+<td style="text-align: left;">Derivative</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">s.a</td>
+<td style="text-align: left;">Integration by parts</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">s.e</td>
+<td style="text-align: left;">Integrating absolute values by splitting the bounds</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">s.k</td>
+<td style="text-align: left;">Gaussian integrals</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">s.l</td>
+<td style="text-align: left;">Proving <span class="math inline">\(\int_{-\infty}^\infty e^{-x^2} dx = \sqrt{\pi}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">s.m</td>
+<td style="text-align: left;">Proving <span class="math inline">\(\int_{-\infty}^\infty e^{-ax^2 + bx} dx = e^{b^2 / 4a} \sqrt{\frac{\pi}{a}}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">s.n</td>
+<td style="text-align: left;">Proving <span class="math inline">\(\int_{-\infty}^\infty x^n e^{-ax^2} dx\)</span> for even <span class="math inline">\(n\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">t</td>
+<td style="text-align: left;"><span class="math inline">\(\frac{d}{dx} x^n = n x^{n-1}\)</span> Proof 1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">u</td>
+<td style="text-align: left;"><span class="math inline">\(\frac{d}{dx} \ln(x) = \frac{1}{x}\)</span> Proof 1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">v</td>
+<td style="text-align: left;">Definitions: Linear and homogenous differential equations</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">w</td>
+<td style="text-align: left;"><span class="math inline">\(N\)</span>-th order linear diff eq has <span class="math inline">\(N\)</span> solutions</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">x</td>
+<td style="text-align: left;">Example 1: <span class="math inline">\(\dot{x} = ax\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">y</td>
+<td style="text-align: left;">Example 2: <span class="math inline">\(\ddot{x} = ax\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">z</td>
+<td style="text-align: left;">Superposition of solutions fails for nonlinear diff eq</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">AA</td>
+<td style="text-align: left;">Example 2: <span class="math inline">\(\ddot{x} = ax\)</span> with negative <span class="math inline">\(a\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">AB</td>
+<td style="text-align: left;">Example 3: <span class="math inline">\(\ddot{x} + 2 \gamma \dot{x} + ax = 0\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">AC</td>
+<td style="text-align: left;">Solution when roots of a linear homogenous diff eq are the same</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">AD</td>
+<td style="text-align: left;">Solving <span class="math inline">\(\ddot{x} = 0\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">AE</td>
+<td style="text-align: left;">Solving <span class="math inline">\(\ddot{x} + 2 \gamma \dot{x} + \gamma^2 x = 0\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">AF</td>
+<td style="text-align: left;">Solution for general case for <span class="math inline">\(n\)</span> identical roots</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">AG</td>
+<td style="text-align: left;">Haar measure</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">AG.E</td>
+<td style="text-align: left;">Hermite polynomials</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">AG.ZA</td>
+<td style="text-align: left;">Set</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">AG.ZB</td>
+<td style="text-align: left;">Ordered set</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">AG.ZC</td>
+<td style="text-align: left;">Bounded sets</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">AG.ZD</td>
+<td style="text-align: left;">Least-upper-bound property</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">AG.ZE</td>
+<td style="text-align: left;">Least-upper-bound property implies greatest-lower-bound property</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">AG.ZF</td>
+<td style="text-align: left;">Field</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">AG.ZFA</td>
+<td style="text-align: left;">Field axioms for addition</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">AG.ZFB</td>
+<td style="text-align: left;">Field axioms for multiplication</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">AG.ZFC</td>
+<td style="text-align: left;">Distributive law</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">AH</td>
+<td style="text-align: left;">Quotes and open questions</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">AH.A</td>
+<td style="text-align: left;">Quotes and open questions 2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">AH.E</td>
+<td style="text-align: left;">History of QM</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">AH.F</td>
+<td style="text-align: left;">Special relativity and photons</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">AH.G</td>
+<td style="text-align: left;">Atomic spectra of hydrogen</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">AH.H</td>
+<td style="text-align: left;">Bohr’s model of the atom</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">AH.I</td>
+<td style="text-align: left;">QM model of the atom</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">AH.IT</td>
+<td style="text-align: left;">Quantum numbers</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">AH.J</td>
+<td style="text-align: left;">Spin</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">AH.K</td>
+<td style="text-align: left;">Experiment on spin</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">AH.M</td>
+<td style="text-align: left;">Planck’s quanta experiment</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">AH.N</td>
+<td style="text-align: left;">Planck’s constant, <span class="math inline">\(h\)</span> and <span class="math inline">\(\hbar\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">AH.T</td>
+<td style="text-align: left;">Einstein proposes light itself is quantized</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">AH.a</td>
+<td style="text-align: left;">What makes QM different?</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">AH.d</td>
+<td style="text-align: left;">Proving necessity of complex numbers in QM</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">AH.h</td>
+<td style="text-align: left;">When is QM relevant in solids?</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">AH.k</td>
+<td style="text-align: left;">Boltzmann’s constant</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">AI</td>
+<td style="text-align: left;">State space postulate of QM</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">AJ</td>
+<td style="text-align: left;">Discrete evolution postulate of QM</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">AJ.E</td>
+<td style="text-align: left;">Deriving QM from classical mechanics</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">AJ.F</td>
+<td style="text-align: left;">De Broglie hypothesis</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">AJ.FE</td>
+<td style="text-align: left;">Antagonism of position and wavelength</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">AJ.G</td>
+<td style="text-align: left;">Arriving at time-dependent Schrodinger equation</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">AJ.GG</td>
+<td style="text-align: left;">Separation of variables</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">AJ.H</td>
+<td style="text-align: left;">Assuming separation of variables to derive time-independent SE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">AJ.HM</td>
+<td style="text-align: left;">Who cares about TISE?</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">AJ.HP</td>
+<td style="text-align: left;">Stationary states</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">AJ.HQ</td>
+<td style="text-align: left;">Dynamic states from stationary states</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">AJ.HS</td>
+<td style="text-align: left;">Definitively measuring total energy of stationary states</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">AJ.I</td>
+<td style="text-align: left;">Solutions to TISE form a basis for time-dependent SE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">AJ.K</td>
+<td style="text-align: left;">Basis for solutions to TISE can be made real</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">AJ.a</td>
+<td style="text-align: left;">Even <span class="math inline">\(V(x)\)</span> implies even &amp; odd <span class="math inline">\(\psi(x)\)</span> exist in TISE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">AJ.f</td>
+<td style="text-align: left;">Infinite square well</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">AJ.g</td>
+<td style="text-align: left;">Discretization of energy in ISW</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">AJ.h</td>
+<td style="text-align: left;">TDSE basis for ISW</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">AJ.i</td>
+<td style="text-align: left;">ISW stationary states are orthonormal</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">AJ.j</td>
+<td style="text-align: left;">Uncertainty calculations for ISW stationary states</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">AJ.k</td>
+<td style="text-align: left;"><span class="math inline">\(\braket{x}\)</span> and <span class="math inline">\(\braket{p}\)</span> for ISM <span class="math inline">\(\psi = \frac{1}{\sqrt{2}} (\psi_1 + \psi_2)\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">AK</td>
+<td style="text-align: left;">Schrödinger’s equation</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">AK.C</td>
+<td style="text-align: left;">What’s <span class="math inline">\(\left \lfloor{\psi} \right \rfloor\)</span>?</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">AK.D</td>
+<td style="text-align: left;">Time derivative to position derivative using SE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">AK.E</td>
+<td style="text-align: left;">Statistical interpretation of Schrodinger equation</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">AK.F</td>
+<td style="text-align: left;">Norm invariance of Schrodinger solution</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">AK.FC</td>
+<td style="text-align: left;"><span class="math inline">\(\frac{d}{dt} \int \psi_1^* \psi_2 dx = 0\)</span> for any 2 normalizable solutions to SE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">AK.FD</td>
+<td style="text-align: left;">Imaginary potential results in an exponentially decreasing norm</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">AK.FE</td>
+<td style="text-align: left;">Time derivative of <span class="math inline">\(\psi^* \psi\)</span> in SE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">AK.FJ</td>
+<td style="text-align: left;">Probability current</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">AK.FK</td>
+<td style="text-align: left;">Deriving probability current</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">AK.G</td>
+<td style="text-align: left;">Expectation of position of a particle</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">AK.GE</td>
+<td style="text-align: left;">Position eigenfunctions</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">AK.H</td>
+<td style="text-align: left;">Derivative of expectation of position of a particle</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">AK.I</td>
+<td style="text-align: left;">Expectation of momentum</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">AK.IB</td>
+<td style="text-align: left;">Derivative of expectation of momentum of a particle</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">AK.IC</td>
+<td style="text-align: left;">Potential terms in <strong>AK.IB</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">AK.ID</td>
+<td style="text-align: left;">Momentum eigenfunctions</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">AK.IE</td>
+<td style="text-align: left;">Generalization of expected quantities</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">AK.IF</td>
+<td style="text-align: left;">Orthonormality for a continuous set</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">AK.IG</td>
+<td style="text-align: left;">Normalizing momentum eigenfunctions</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">AK.IGE</td>
+<td style="text-align: left;"><span class="math inline">\(c_n = \braket{n \mid \Psi}\)</span> for orthonormal, complete <span class="math inline">\(\ket{n}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">AK.IH</td>
+<td style="text-align: left;">Fourier transform to switch between position and momentum eigenbases</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">AK.IHE</td>
+<td style="text-align: left;">Momentum-space representation of “top hat” position-space wave function</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">AK.IJ</td>
+<td style="text-align: left;">Operators</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">AK.IK</td>
+<td style="text-align: left;"><span class="math inline">\(\hat{Q} \psi = q \psi \rightarrow f(\hat{Q}) \psi = f(q) \psi\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">AK.IM</td>
+<td style="text-align: left;">Canonical commutation relation <span class="math inline">\([ \hat{x}, \hat{p} ] = i \hbar\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">AK.J</td>
+<td style="text-align: left;">Where was the particle before measurements?</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">AK.K</td>
+<td style="text-align: left;">Realist position</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">AK.L</td>
+<td style="text-align: left;">Orthodox position</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">AK.M</td>
+<td style="text-align: left;">Agnostic position</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">AK.N</td>
+<td style="text-align: left;">Where will the particle be after measurement?</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">AL</td>
+<td style="text-align: left;">Hamiltonian</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">AL.E</td>
+<td style="text-align: left;">Hamiltonian as energy</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">AL.K</td>
+<td style="text-align: left;"><span class="math inline">\(\Psi\)</span> is only normalizable if <span class="math inline">\(E\)</span> is real</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">AL.N</td>
+<td style="text-align: left;"><span class="math inline">\(E \geq \min V(x)\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">AM</td>
+<td style="text-align: left;">Ground state</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">AN</td>
+<td style="text-align: left;">Continuous evolution postulate of QM</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">AO</td>
+<td style="text-align: left;">Connecting discrete and continuous postulates</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">AP</td>
+<td style="text-align: left;">Measurement postulate of QM</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">AP.B</td>
+<td style="text-align: left;">Measurement postulate with wave functions</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">AP.C</td>
+<td style="text-align: left;">Proving orthonormality of energy eigenfunctions with <strong>AP.B</strong></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">AP.E</td>
+<td style="text-align: left;">What constitutes measurement?</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">AQ</td>
+<td style="text-align: left;">Projective measurements + unitary dynamics + ancillary systems = general measurement</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">AR</td>
+<td style="text-align: left;">Projective measurements</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">AR.E</td>
+<td style="text-align: left;">Why must observables be Hermitian?</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">AS</td>
+<td style="text-align: left;">Expectation &amp; variance of projective measurements</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">AS.E</td>
+<td style="text-align: left;">Time derivative of expectation</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">AT</td>
+<td style="text-align: left;">General observable</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">AU</td>
+<td style="text-align: left;">Eigenvalues and eigenvectors of general observable</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">AV</td>
+<td style="text-align: left;">POVM measurements</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">AW</td>
+<td style="text-align: left;">Using POVMs to <em>sometimes</em> distinguish non-orthogonal states</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">AW.E</td>
+<td style="text-align: left;">Heisenberg uncertainty principle</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">AX</td>
+<td style="text-align: left;">Heisenberg uncertainty principle with observables</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">AX.E</td>
+<td style="text-align: left;">A state with zero uncertainty in observable <span class="math inline">\(Q\)</span> must be an eigenstate</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">AZ</td>
+<td style="text-align: left;">Non-orthogonal states can’t be distinguished</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Aa</td>
+<td style="text-align: left;">Phase</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Aa.M</td>
+<td style="text-align: left;">Adding a constant <span class="math inline">\(V_0\)</span> to potential energy in Schrodinger equation</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Ab</td>
+<td style="text-align: left;">Composite state space postulate of QM</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ac</td>
+<td style="text-align: left;">Entanglement</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Ad</td>
+<td style="text-align: left;">Maximally entangled state</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ae</td>
+<td style="text-align: left;">Most <span class="math inline">\(n\)</span>-qubit states are entangled</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Af</td>
+<td style="text-align: left;">Density operators</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ag</td>
+<td style="text-align: left;">Pure states criterion</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Ah</td>
+<td style="text-align: left;">Density operators <em>of</em> density operators</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ai</td>
+<td style="text-align: left;">Measurements on density operators</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Aj</td>
+<td style="text-align: left;">Post-measurement states of density operators</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ak</td>
+<td style="text-align: left;">Characterization of density operators</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Al</td>
+<td style="text-align: left;">Purification</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Am</td>
+<td style="text-align: left;">Reduced density operator</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">An</td>
+<td style="text-align: left;">Bell inequality</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ao</td>
+<td style="text-align: left;">QM result for Bell inequality</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Ap</td>
+<td style="text-align: left;">Linearity of quantum gates</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Aq</td>
+<td style="text-align: left;">Orthogonality of basis states</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Ar</td>
+<td style="text-align: left;">Unitarity constraint</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ar.M</td>
+<td style="text-align: left;">Hamiltonian by constraining evolution to be continuous</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">As</td>
+<td style="text-align: left;">No cloning theorem</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">At</td>
+<td style="text-align: left;">Essence of no cloning theorem</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Au</td>
+<td style="text-align: left;">Unitarity reverse direction</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Av</td>
+<td style="text-align: left;">Bell states</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Av.M</td>
+<td style="text-align: left;">Expectation of Bell pair for general measurement</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Aw</td>
+<td style="text-align: left;">CNOT</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Ax</td>
+<td style="text-align: left;">CNOT 16B-change-of-basis</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ay</td>
+<td style="text-align: left;">Toffoli gate</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Az</td>
+<td style="text-align: left;">Deutsch’s algorithm</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BA</td>
+<td style="text-align: left;">Deutsch-Jozsa algorithm</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BB</td>
+<td style="text-align: left;">Walsh-Hadamard transform</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BC</td>
+<td style="text-align: left;">Variational principle</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BD</td>
+<td style="text-align: left;">VQE overview</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BE</td>
+<td style="text-align: left;">Hamiltonian averaging</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BF</td>
+<td style="text-align: left;">Ansatz</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BG</td>
+<td style="text-align: left;">Methods for choosing ansatze</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BH</td>
+<td style="text-align: left;">Unitary Coupled Cluster ansatz</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BI</td>
+<td style="text-align: left;">Random circuit ansatze fail</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BJ</td>
+<td style="text-align: left;">Superdense coding</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BK</td>
+<td style="text-align: left;">Intercepting Alice’s qubit gives no information in superdense coding</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BL</td>
+<td style="text-align: left;">Motivation for quantum noise</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BM</td>
+<td style="text-align: left;">Quantum operation definition</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BN</td>
+<td style="text-align: left;">Quantum operations as a system coupled to environment</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BO</td>
+<td style="text-align: left;">Generalizing definition of quantum operation</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BP</td>
+<td style="text-align: left;">Assumption of tensor product in <strong>BN</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BQ</td>
+<td style="text-align: left;">Operator-sum representation</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BR</td>
+<td style="text-align: left;">Physical implementation of operator-sum representation</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BS</td>
+<td style="text-align: left;">Completeness relation for operation elements</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BT</td>
+<td style="text-align: left;">Non-trace preserving quantum operations</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BU</td>
+<td style="text-align: left;">Axiomatic approach to quantum operations</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BV</td>
+<td style="text-align: left;">Proving operator-sum representation is equivalent to axioms in <strong>BU</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BW</td>
+<td style="text-align: left;">Only-if direction of <strong>BW</strong></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BX</td>
+<td style="text-align: left;">Fidelity</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BY</td>
+<td style="text-align: left;">Markov noise process</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BZ</td>
+<td style="text-align: left;">Simple harmonic motion</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ba</td>
+<td style="text-align: left;">Damped harmonic oscillator</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Bb</td>
+<td style="text-align: left;">Underdamped harmonic oscillator</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Bc</td>
+<td style="text-align: left;">Overdamped harmonic oscillator</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Bd</td>
+<td style="text-align: left;">Critically damped harmonic oscillator</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Be</td>
+<td style="text-align: left;">Why is the simple harmonic oscillator so important?</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Bf</td>
+<td style="text-align: left;">TISE for SHO</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Bg</td>
+<td style="text-align: left;">Algebraic solution to SHO TISE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Bg.E</td>
+<td style="text-align: left;"><span class="math inline">\(\int_{-\infty}^\infty f^* (a_\pm g) \ dx = \int_{-\infty}^\infty (a_\mp f)^* g\ dx\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Bg.H</td>
+<td style="text-align: left;">Expressing dynamic variables in terms of raising/lowering operators</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Bh</td>
+<td style="text-align: left;">For the SHO TISE, if <span class="math inline">\(\psi\)</span> has energy <span class="math inline">\(E\)</span>, then <span class="math inline">\(a_\pm \psi\)</span> has energy <span class="math inline">\(E \pm \hbar \omega\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Bi</td>
+<td style="text-align: left;">Algebraically finding the SHO ground state</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Bi.E</td>
+<td style="text-align: left;">Simplifying <span class="math inline">\(a_\pm a_\mp\)</span> into number operators</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Bi.H</td>
+<td style="text-align: left;">First 3 stationary states for SHO</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Bj</td>
+<td style="text-align: left;">Normalizing <span class="math inline">\(\psi_n\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Bk</td>
+<td style="text-align: left;">SHO stationary states are orthonormal</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Bl</td>
+<td style="text-align: left;">Expected potential energy <span class="math inline">\(\braket{V}\)</span> in <span class="math inline">\(n\)</span><sup>th</sup> stationary state of SHO</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Bl.E</td>
+<td style="text-align: left;">Expected kinetic energy <span class="math inline">\(\braket{T}\)</span> in <span class="math inline">\(n\)</span><sup>th</sup> stationary state of SHO</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Bm</td>
+<td style="text-align: left;">Uncertainty principle on <span class="math inline">\(n\)</span><sup>th</sup> SHO stationary state</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Bn</td>
+<td style="text-align: left;">Rewriting SHO TISE with <span class="math inline">\(\xi\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Bo</td>
+<td style="text-align: left;">SHO TISE at large <span class="math inline">\(\xi\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Bp</td>
+<td style="text-align: left;">“Peeling off” the exponential in SHO TISE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Bq</td>
+<td style="text-align: left;">Power series solution for <span class="math inline">\(h\)</span> in SHO TISE leads to recursive relation</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Br</td>
+<td style="text-align: left;">What <span class="math inline">\(\psi\)</span> satisfies the recursive relation in <strong>Bq</strong>?</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Bs</td>
+<td style="text-align: left;">Quantization of energy in SHO arises from requiring finite power series</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Bs.E</td>
+<td style="text-align: left;">SHO TISE solutions for <span class="math inline">\(n = 0,1,2\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Bt</td>
+<td style="text-align: left;">SHO stationary states with Hermite polynomials</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Bu</td>
+<td style="text-align: left;">Gaussian wave packet wave function</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Bv</td>
+<td style="text-align: left;"><span class="math inline">\(\braket{x}\)</span> and <span class="math inline">\(\braket{p}\)</span> for the Gaussian wave packet</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Bw</td>
+<td style="text-align: left;"><span class="math inline">\(\braket{x^2}\)</span> and <span class="math inline">\(\braket{p^2}\)</span> for the Gaussian wave packet</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Bx</td>
+<td style="text-align: left;">Dirac delta function (distribution)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">By</td>
+<td style="text-align: left;"><span class="math inline">\(\int \exp (i \alpha \beta) d \alpha = 2 \pi \delta (\beta)\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Bz</td>
+<td style="text-align: left;"><span class="math inline">\(\int \exp (i \alpha \beta / \hbar) d \alpha = 2 \pi \hbar \delta (\beta)\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">CA</td>
+<td style="text-align: left;">Free particle</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">CB</td>
+<td style="text-align: left;">Free particle energy eigenfunctions</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">CC</td>
+<td style="text-align: left;">Free particle eigenfunctions as momentum eigenfunctions</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">CD</td>
+<td style="text-align: left;">Free particle eigenfunctions as travelling waves</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">CD.E</td>
+<td style="text-align: left;">Wave number <span class="math inline">\(k\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">CE</td>
+<td style="text-align: left;">Classical bound and scattering states</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">CF</td>
+<td style="text-align: left;">Quantum bound and scattering states</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">CH</td>
+<td style="text-align: left;">Bounded CFRs lead to tunneling</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">CI</td>
+<td style="text-align: left;">Reflection and transmission in scattering states</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">CJ</td>
+<td style="text-align: left;">Probability current in scattering states</td>
+</tr>
+</tbody>
+</table>
+
+    
+    <div id="cal-heatmap"></div>
+  </div>
+</article>
+
+  </div>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-2">
+        <p> </p>
+      </div>
+    </div>
+  </div>
+</footer>
+</body>
+
+</html>
