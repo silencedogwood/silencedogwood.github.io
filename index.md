@@ -6,6 +6,14 @@ publish: true
 
 ***Thesis: If you avoid failing predictably, you avoid failing.***
 
+Hey, I like this from Andrej Karpathy: 
+
+> How to become expert at thing: 
+> 1. Iteratively take on concrete projects and accomplish them *depth wise*, 
+> learning "on demand" (ie don't learn bottom up breadth wise).
+> 2. Teach/summarize everything you learn in your own words. 
+> 3. **Only compare yourself to younger you, never to others.**
+
 ---
 
 ::: {#rule}

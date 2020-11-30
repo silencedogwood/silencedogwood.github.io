@@ -25,6 +25,7 @@ Favorites
 #. "Humans are not automatically strategic" by Anna Salamon
 #. ["Thoughts on Meaning and Writing"](https://dormin.org/2020/10/06/thoughts-on-meaning-and-writing/) by Dormin
 #. "If" by Rudyard Kipling {% notes if %}
+#. ["Is Success the Enemy of Freedom?"](https://radimentary.wordpress.com/2020/10/26/is-success-the-enemy-of-freedom-full/)
 :::
 
 
@@ -39,6 +40,7 @@ Now Reading
 #. "[Principled Decision Making](https://stopa.io/post/217)" by Stepan Parunashvili
 #. *The Red Queen* by Matt Ridley {% notes red_queen %}
 #. *How to Change Your Mind* by Michael Pollan
+#. *Status Anxiety* by Alain de Botton 
 :::
 
 ::: {#finished} 
@@ -83,6 +85,10 @@ Anti-Library
 :::
 
 ::: reading-list 
+#. *So You've Been Publicly Shamed* by Jon Ronson
+#. *Perennial Seller* by Ryan Holiday
+#. *Three Acres and Liberty* by Bolton Hall
+#. All of Alaine de Botton's books look amazing
 #. *The Evolving Self: Problem and Process in Human Development* by Robert Kegan
 #. *In Over Our Heads: The Mental Demands of Modern Life* by Robert Kegan
 #. *Zen and the Art of Motorcycle Maintenance* by Robert Pirsig

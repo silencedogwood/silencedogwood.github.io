@@ -373,4 +373,42 @@ by other forms of life. The tangled bank is a gradualist idea." - p 52
 
 **The Red Queen**
 
+"[Van Valen discovered] that the probability a family of animals would become 
+extinct *does not depend* on how long that family has already existed. In 
+other words, species do not get better at surviving (nor do they grow feeble 
+with age, as individuals do). Their chances of extinction are random... It 
+represented a vital truth about evolution that Darwin had not wholly 
+appreciated. The struggle for existence never gets easier. However well a 
+species may adapt to its environment, it can never relax, because its 
+competitors and its enemies are also adapting to their niches. Survival is a 
+zero-sum game." - p 54 
+
+"Parasites are usually much smaller than their hosts, while predators are 
+usually larger. This means that the parasites live shorter lives and pass 
+through more generations in a given time than their hosts. The bacteria in your 
+gut pass through six times as many generations during your lifetime as *people 
+have passed through since they were apes*. As a consequence, they can multiply 
+faster then their hosts and control or reduce the host population." - p 56 
+
+**Battles of Wit**
+
+"Parasites provide exactly the incentive to change genes every generation 
+that sex seems to demand. The success of the genes that defended you so well in 
+the last generation may be the best of reasons to abandon these same gene 
+combinations in the next. By the time the next generation comes around, the 
+parasites will have surely evolved an answer to the defense that worked best 
+in the last generation." - p 56 
+
+**Artificial Viruses**
+
+"In about ten years, the genes of the AIDS virus change as much as human 
+genes change in 10 million years." - p 59 
+
+**Picking DNA's Locks**
+
+"Austin Burt's discovery of a correlation between generation length and amount 
+of recombination is evidence of the Red Queen at work. The longer your 
+generation time, the more genetic mixing you need to combat your parasites" - 
+p 59 
+
 
